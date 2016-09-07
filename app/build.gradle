@@ -1,0 +1,83 @@
+//apply plugin: 'com.android.application'
+apply plugin: 'com.android.model.application'
+
+model { //这一行是新加的，对应上边的修改,
+    /**
+     * 这里要注意一下，如果使用gradle-experimental,参数赋值要使用 = 号，而不是空格，
+     * 所以要把原来文件中的空格都用等号去替换；
+     * 还有一部分参数使用的函数也与原来不一样，
+     * 实在不能确定的就找出ndk samples中的build.gradle文件对比一下。
+     */
+    android {
+        compileSdkVersion = 23
+        buildToolsVersion = "24.0.2"
+
+        defaultConfig {
+            applicationId = "com.chenglong.muscle"
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 23
+        }
+
+        ndk {
+            moduleName = "bsdiffjni"
+            toolchain = 'clang'
+            ldLibs.addAll(['log'])             //库文件名
+            stl = "stlport_static"      //指示使用动态库还是静态库
+            //abiFilters "armeabi", "armeabi-v7a", "x86"
+            abiFilters.add("armeabi")
+            abiFilters.add("armeabi-v7a")
+            abiFilters.add("x86")
+            abiFilters.add("x86_64")
+            abiFilters.add("arm64-v8a")
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled = false
+                proguardFiles.add(file('proguard-rules.pro'))
+                ndk {
+                    debuggable = true
+                }
+            }
+
+            debug {
+                 debuggable = true
+            }
+        }
+
+        productFlavors { /**  copy过来的，根据不同的平台，会有不同的配置 */
+            // for detailed abiFilter descriptions, refer to "Supported ABIs" @
+            // https://developer.android.com/ndk/guides/abis.html#sa
+            create("arm") {
+                ndk.abiFilters.add("armeabi")
+            }
+            create("arm7") {
+                ndk.abiFilters.add("armeabi-v7a")
+            }
+            create("arm8") {
+                ndk.abiFilters.add("arm64-v8a")
+            }
+            create("x86") {
+                ndk.abiFilters.add("x86")
+            }
+            create("x86-64") {
+                ndk.abiFilters.add("x86_64")
+            }
+            create("mips") {
+                ndk.abiFilters.add("mips")
+            }
+            create("mips-64") {
+                ndk.abiFilters.add("mips64")
+            }
+            // To include all cpu architectures, leaves abiFilters empty
+            create("all")
+        }
+    }
+}
+dependencies {
+    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/GifView.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
+}
