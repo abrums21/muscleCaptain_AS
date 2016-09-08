@@ -3,20 +3,12 @@ package com.chenglong.muscle.body;
 import com.ant.liao.GifView;
 import com.ant.liao.GifView.GifImageType;
 import com.chenglong.muscle.R;
-import com.chenglong.muscle.R.array;
-import com.chenglong.muscle.R.id;
-import com.chenglong.muscle.R.layout;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface.OnKeyListener;
 import android.content.res.TypedArray;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager.LayoutParams;
-import android.text.Layout;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -35,7 +27,7 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 	private String[] name;
 	private int[] drawableIds;
 	private int[] drawableGIds;
-	PopupWindow popup = null;
+	private PopupWindow popup = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +35,7 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.muscle_list);
 
-		getListInfo();
-
+		decodeAttributes();
 		setListInfo();
 	}
 
@@ -54,11 +45,9 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 		getWindow().setAttributes(lp);
 	}
 
-	private void getListInfo() {
+	private void decodeAttributes() {
 		// TODO Auto-generated method stub
-
-		Bundle mBundle = getIntent().getExtras();
-		int position = mBundle.getInt("position");
+		int position = getIntent().getExtras().getInt("position");
 
 		String[] textArray = getResources().getStringArray(R.array.muscle);
 		TextView tv = (TextView) findViewById(R.id.muscle_list_tv);
@@ -69,21 +58,20 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 		for (int i = 0; i < idNum; i++)
 			resIds[i] = ar.getResourceId((position - 1) * idNum + i, 0);
 		ar.recycle();
-
 		/* name */
 		name = getResources().getStringArray(resIds[0]);
-
 		/* drawable */
 		ar = getResources().obtainTypedArray(resIds[1]);
-		drawableIds = new int[ar.length()];
-		for (int i = 0; i < ar.length(); i++)
+		int length = ar.length();
+		drawableIds = new int[length];
+		for (int i = 0; i < length; i++)
 			drawableIds[i] = ar.getResourceId(i, 0);
 		ar.recycle();
-
 		/* drawable_g */
 		ar = getResources().obtainTypedArray(resIds[2]);
-		drawableGIds = new int[ar.length()];
-		for (int i = 0; i < ar.length(); i++)
+		length = ar.length();
+		drawableGIds = new int[length];
+		for (int i = 0; i < length; i++)
 			drawableGIds[i] = ar.getResourceId(i, 0);
 		ar.recycle();
 	}
@@ -121,12 +109,10 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				// TODO Auto-generated method stub
-
 				if (keyCode == KeyEvent.KEYCODE_BACK) {
 					popup.dismiss();
 					return true;
 				}
-
 				return false;
 			}
 		});
@@ -136,7 +122,6 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				// finish();
 				popup.dismiss();
 			}
 		});
@@ -157,7 +142,5 @@ public class MuscleListActivity extends Activity implements OnItemClickListener 
 				setBackgroudAlpha(1f);
 			}
 		});
-
 	}
-
 }

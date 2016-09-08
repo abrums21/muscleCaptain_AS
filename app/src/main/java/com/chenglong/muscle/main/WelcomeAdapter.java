@@ -59,14 +59,12 @@ public class WelcomeAdapter extends PagerAdapter {
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		// TODO Auto-generated method stub
-		 //super.destroyItem(container, position, object);
 		container.removeView((View)object);
 	}
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
 		// TODO Auto-generated method stub
-		 //return super.instantiateItem(container, position);
 		ImageView iv = new ImageView(context);
 		iv.setScaleType(ScaleType.FIT_XY);
 		//imageLoader.displayImage("drawable://"+imgId[position], iv, options);

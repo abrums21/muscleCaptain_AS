@@ -3,10 +3,6 @@ package com.chenglong.muscle.tool;
 import java.util.Calendar;
 
 import com.chenglong.muscle.R;
-import com.chenglong.muscle.R.array;
-import com.chenglong.muscle.R.drawable;
-import com.chenglong.muscle.R.id;
-import com.chenglong.muscle.R.layout;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -21,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-public class LessionActivity extends Activity {
+public class LessonActivity extends Activity {
 
 	private final int[] trainImages = { R.drawable.sunday, R.drawable.monday, R.drawable.tuesday, R.drawable.wednesday,
 			R.drawable.thursday, R.drawable.friday, R.drawable.satday };
@@ -34,7 +30,7 @@ public class LessionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lession);
+		setContentView(R.layout.lesson);
 		setTitle("美队健身：训练课程");
 
 		Calendar cal = Calendar.getInstance();

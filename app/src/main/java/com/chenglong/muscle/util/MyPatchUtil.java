@@ -5,7 +5,7 @@ package com.chenglong.muscle.util;
  */
 public class MyPatchUtil {
 
-    static{
+    static {
         System.loadLibrary("bsdiffjni");
     }
 

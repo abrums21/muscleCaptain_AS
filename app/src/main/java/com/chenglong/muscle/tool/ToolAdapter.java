@@ -1,4 +1,4 @@
-package com.chenglong.muscle.body;
+package com.chenglong.muscle.tool;
 
 import com.chenglong.muscle.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -6,6 +6,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,23 +15,30 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MuscleAdapter extends BaseAdapter {
+public class ToolAdapter extends BaseAdapter {
+
+    private String[] imageName;
+    private int[] imageIds;
     private Context context;
     private DisplayImageOptions options;
     private ImageLoader imageLoader = ImageLoader.getInstance();
-    private String[] name;
-    private int[] drawableIds;
 
     private class ViewHolder {
         public ImageView image;
         public TextView lesson;
     }
 
-    public MuscleAdapter(Context context, String[] name, int[] drawableIds) {
+    public ToolAdapter(Context context) {
         this.context = context;
-        this.name = name;
-        this.drawableIds = drawableIds;
-        
+        imageName = context.getResources().getStringArray(R.array.tool_iamge_name);
+
+        TypedArray ar = context.getResources().obtainTypedArray(R.array.tool_image);
+        int length = ar.length();
+        imageIds = new int[length];
+        for (int i = 0; i < length; i++)
+            imageIds[i] = ar.getResourceId(i, 0);
+        ar.recycle();
+
 		/* 设置选项  */
         options = new DisplayImageOptions.Builder()
 //				.showImageOnLoading(R.drawable.ic_launcher)//设置图片在下载期间显示的图片  
@@ -45,10 +53,11 @@ public class MuscleAdapter extends BaseAdapter {
                 .build();
     }
 
+
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return drawableIds.length;
+        return imageName.length;
     }
 
     @Override
@@ -69,18 +78,19 @@ public class MuscleAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         if (null == convertView) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.muscle_listitem, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.tool_griditem, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.image = (ImageView) convertView.findViewById(R.id.muscle_listitem_iv);
-            viewHolder.lesson = (TextView) convertView.findViewById(R.id.muscle_listitem_tv);
+            viewHolder.image = (ImageView) convertView.findViewById(R.id.tool_griditem_iv);
+            viewHolder.lesson = (TextView) convertView.findViewById(R.id.tool_griditem_tv);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        imageLoader.displayImage("drawable://" + drawableIds[position], viewHolder.image, options);
-        viewHolder.lesson.setText(name[position]);
+        imageLoader.displayImage("drawable://" + imageIds[position], viewHolder.image, options);
+        viewHolder.lesson.setText(imageName[position]);
 
         return convertView;
     }
+
 }

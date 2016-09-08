@@ -44,271 +44,259 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MapActivity extends Activity
-		implements BDLocationListener, OnMapStatusChangeListener, OnGetPoiSearchResultListener, OnMarkerClickListener {
+        implements BDLocationListener, OnMapStatusChangeListener, OnGetPoiSearchResultListener, OnMarkerClickListener {
 
-	private MapView mapView;
-	private BaiduMap baiduMap;
-	private Boolean locationFlag;
-	private LocationClient locClient;
-	private final String keyWordInSearch = "健身房";
-	private final int radiusInSearch = 5 * 1000;
-	private double latitude = 0;
-	private double longitude = 0;
-	private PoiSearch poiSearch;
-	private MyPoiOverlay myPoiOverlay;
-	private String phoneNo;
-	private boolean initFalse = false;
+    private MapView mapView;
+    private BaiduMap baiduMap;
+    private Boolean locationFlag;
+    private LocationClient locClient;
+    private final String keyWordInSearch = "健身房";
+    private final int radiusInSearch = 5 * 1000;
+    private double latitude = 0;
+    private double longitude = 0;
+    private PoiSearch poiSearch;
+    private MyPoiOverlay myPoiOverlay;
+    private String phoneNo;
+    private boolean initFalse = false;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		
-		try
-		{
-		    SDKInitializer.initialize(getApplicationContext());
-		}
-		catch(Exception e)
-		{
-			initFalse = true;
-			finish();
-			return;
-		}
-		
-		setContentView(R.layout.map);
-		setTitle("美队健身：附近健身房");
-		
-		Toast.makeText(this, "本功能依赖于网络访问权限，请确认开启", Toast.LENGTH_SHORT).show();
-		
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+
+        try {
+            SDKInitializer.initialize(getApplicationContext());
+        } catch (Exception e) {
+            initFalse = true;
+            finish();
+            return;
+        }
+
+        setContentView(R.layout.map);
+        setTitle("美队健身：附近健身房");
+
+        Toast.makeText(this, "本功能依赖于网络访问权限，请确认开启", Toast.LENGTH_SHORT).show();
+
 		/* 基础地图及定位图层功能 */
-		mapSetting();
+        mapSetting();
 		/* 我的位置图标动作 */
-		myLocSetting();
+        myLocSetting();
 		/* POI图层实现 */
-		poiSetting();
-	}
-	
+        poiSetting();
+    }
 
-	private void poiSetting() {
-		// TODO Auto-generated method stub
-		poiSearch = PoiSearch.newInstance();
-		myPoiOverlay = new MyPoiOverlay(baiduMap);
-		poiSearch.setOnGetPoiSearchResultListener(this);
-		baiduMap.setOnMapStatusChangeListener(this);
-		baiduMap.setOnMarkerClickListener(this);
-	}
 
-	private void poiSearch(double centerLat, double centerLon) {
-		// TODO Auto-generated method stub
-		poiSearch.searchNearby(new PoiNearbySearchOption().radius(radiusInSearch).keyword(keyWordInSearch)
-				.location(new LatLng(centerLat, centerLon)));
-	}
+    private void poiSetting() {
+        // TODO Auto-generated method stub
+        poiSearch = PoiSearch.newInstance();
+        myPoiOverlay = new MyPoiOverlay(baiduMap);
+        poiSearch.setOnGetPoiSearchResultListener(this);
+        baiduMap.setOnMapStatusChangeListener(this);
+        baiduMap.setOnMarkerClickListener(this);
+    }
 
-	private void myLocSetting() {
-		// TODO Auto-generated method stub
-		ImageView mylocImage = (ImageView)findViewById(R.id.myLoc_frag3);
+    private void poiSearch(double centerLat, double centerLon) {
+        // TODO Auto-generated method stub
+        poiSearch.searchNearby(new PoiNearbySearchOption().radius(radiusInSearch).keyword(keyWordInSearch)
+                .location(new LatLng(centerLat, centerLon)));
+    }
 
-		mylocImage.setOnClickListener(new OnClickListener() {
+    private void myLocSetting() {
+        // TODO Auto-generated method stub
+        ImageView mylocImage = (ImageView) findViewById(R.id.myLoc_frag3);
 
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				locationFlag = true;
-				locClient.requestLocation();
-			}
-		});
+        mylocImage.setOnClickListener(new OnClickListener() {
 
-	}
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                locationFlag = true;
+                locClient.requestLocation();
+            }
+        });
 
-	private void mapSetting() {
-		// TODO Auto-generated method stub
-		mapView = (MapView)findViewById(R.id.map_frag3);
-		baiduMap = mapView.getMap();
-		// baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+    }
+
+    private void mapSetting() {
+        // TODO Auto-generated method stub
+        mapView = (MapView) findViewById(R.id.map_frag3);
+        baiduMap = mapView.getMap();
+        // baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
 
 		/* 定位 */
-		locationFlag = true;
+        locationFlag = true;
 
-		baiduMap.setMyLocationEnabled(true); /* 先于配置定位信息 */
+        baiduMap.setMyLocationEnabled(true); /* 先于配置定位信息 */
 
-		BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.location_arrow);
-		baiduMap.setMyLocationConfigeration(
-				new MyLocationConfiguration(MyLocationConfiguration.LocationMode.COMPASS, true, mCurrentMarker));
+        BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.location_arrow);
+        baiduMap.setMyLocationConfigeration(
+                new MyLocationConfiguration(MyLocationConfiguration.LocationMode.COMPASS, true, mCurrentMarker));
 
 		/* 启动监听器用来实时定位 */
-		locClient = new LocationClient(getApplication());
-		locClient.registerLocationListener(this);
-		LocationClientOption option = new LocationClientOption(); /* 设置定位信息选项 */
-		option.setOpenGps(true); // 打开GPS
-		option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 设置定位模式
-		option.setCoorType("bd09ll"); // 返回的定位结果是百度经纬度,默认值gcj02
-		option.setScanSpan(20000); // 设置发起定位请求的间隔时间为5000ms
-		option.setIsNeedAddress(true); // 返回的定位结果包含地址信息
-		option.setNeedDeviceDirect(true); // 返回的定位结果包含手机机头的方向
-		locClient.setLocOption(option);
+        locClient = new LocationClient(getApplication());
+        locClient.registerLocationListener(this);
+        LocationClientOption option = new LocationClientOption(); /* 设置定位信息选项 */
+        option.setOpenGps(true); // 打开GPS
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 设置定位模式
+        option.setCoorType("bd09ll"); // 返回的定位结果是百度经纬度,默认值gcj02
+        option.setScanSpan(20000); // 设置发起定位请求的间隔时间为5000ms
+        option.setIsNeedAddress(true); // 返回的定位结果包含地址信息
+        option.setNeedDeviceDirect(true); // 返回的定位结果包含手机机头的方向
+        locClient.setLocOption(option);
 
-		locClient.start(); /* 影响定时器功能 */
-		// locClient.requestLocation();
-	}
-	
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		mapView.onPause();
-	}
+        locClient.start(); /* 影响定时器功能 */
+    }
 
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		mapView.onResume();
-	}
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        mapView.onPause();
+    }
 
-	@Override
-	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		if (!initFalse)
-		{
-		    locClient.stop();
-		    baiduMap.setMyLocationEnabled(false);
-		
-		    mapView.onDestroy();
-		    mapView = null;
-		}
-		super.onDestroy();
-	}
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        mapView.onResume();
+    }
 
-	@Override
-	public void onReceiveLocation(BDLocation location) {
-		// TODO Auto-generated method stub
-		if (location == null || mapView == null)
-			return;
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        if (!initFalse) {
+            locClient.stop();
+            baiduMap.setMyLocationEnabled(false);
 
-		latitude = location.getLatitude();
-		longitude = location.getLongitude();
+            mapView.onDestroy();
+            mapView = null;
+        }
+        super.onDestroy();
+    }
 
-		if (true != locationFlag)
-			return;
-		locationFlag = false;
+    @Override
+    public void onReceiveLocation(BDLocation location) {
+        // TODO Auto-generated method stub
+        if (location == null || mapView == null)
+            return;
 
-		MyLocationData locData = new MyLocationData.Builder().accuracy(location.getRadius()).longitude(longitude)
-				.direction(100).latitude(latitude).build();
-		baiduMap.setMyLocationData(locData);
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
 
-		LatLng ll = new LatLng(latitude, longitude);
-		MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
-		baiduMap.animateMapStatus(u); /* 以动画方式更新地图状态 耗时300ms */
-	}
+        if (true != locationFlag)
+            return;
+        locationFlag = false;
 
-	@Override
-	public void onMapStatusChange(MapStatus arg0) {
-		// TODO Auto-generated method stub
-	}
+        MyLocationData locData = new MyLocationData.Builder().accuracy(location.getRadius()).longitude(longitude)
+                .direction(100).latitude(latitude).build();
+        baiduMap.setMyLocationData(locData);
 
-	@Override
-	public void onMapStatusChangeFinish(MapStatus arg0) {
-		// TODO Auto-generated method stub
-		LatLng latLng = baiduMap.getMapStatus().target;
-		poiSearch(latLng.latitude, latLng.longitude);
-	}
+        LatLng ll = new LatLng(latitude, longitude);
+        MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
+        baiduMap.animateMapStatus(u); /* 以动画方式更新地图状态 耗时300ms */
+    }
 
-	@Override
-	public void onMapStatusChangeStart(MapStatus arg0) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onMapStatusChange(MapStatus arg0) {
+        // TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void onMapStatusChangeFinish(MapStatus arg0) {
+        // TODO Auto-generated method stub
+        LatLng latLng = baiduMap.getMapStatus().target;
+        poiSearch(latLng.latitude, latLng.longitude);
+    }
 
-	@Override
-	public void onGetPoiDetailResult(PoiDetailResult result) {
-		// TODO Auto-generated method stub
-		if ((null == result) || (result.error != SearchResult.ERRORNO.NO_ERROR))
-			return;		
-		
+    @Override
+    public void onMapStatusChangeStart(MapStatus arg0) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onGetPoiDetailResult(PoiDetailResult result) {
+        // TODO Auto-generated method stub
+        if ((null == result) || (result.error != SearchResult.ERRORNO.NO_ERROR))
+            return;
+
 //		TextView phoneLink = new TextView(getActivity());
 //		phoneLink.setText("电话：" + result.getTelephone());
 //		phoneLink.setAutoLinkMask(Linkify.PHONE_NUMBERS);
-		
-		String telephone = result.getTelephone();
-		if ((telephone.isEmpty()) || (telephone.equals("0"))) {
-			phoneNo = "tel:" + result.getTelephone();
-		}
-		else
-		{
-			telephone = "暂无";
-			phoneNo = "";
-		}
-			
-		String[] info = {"地址: " + result.getAddress(), 
-				         "电话：" + telephone,
-				         "营业时间：" + result.getShopHours(),
-				         "价格：" + result.getPrice(), 
-				         "综合评价：" + result.getOverallRating(), 
-				         "服务评价：" + result.getServiceRating()};
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		AlertDialog dialog = builder.setTitle(result.getName()).setIcon(R.drawable.icon_gym).setPositiveButton("关闭", null).setItems(info, new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				if ((1 == which) && (!phoneNo.isEmpty()))
-				{
-					Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneNo));
-					startActivity(intent);
-				}
-				
-			}
-		}).create();
-		
-		WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-    	lp.alpha = 0.6f;
-    	dialog.getWindow().setAttributes(lp);	
-    	
-    	dialog.show();
-	}
-	
 
-	@Override
-	public void onGetPoiResult(PoiResult result) {
-		// TODO Auto-generated method stub
-		//Toast.makeText(getActivity(), "onGetPoiResult : "+result.error, Toast.LENGTH_SHORT).show();
-		if ((null == result) ||(result.error != SearchResult.ERRORNO.NO_ERROR))
-		    return;
-		
+        String telephone = result.getTelephone();
+        if ((telephone.isEmpty()) || (telephone.equals("0"))) {
+            phoneNo = "tel:" + result.getTelephone();
+        } else {
+            telephone = "暂无";
+            phoneNo = "";
+        }
+
+        String[] info = {"地址: " + result.getAddress(),
+                "电话：" + telephone,
+                "营业时间：" + result.getShopHours(),
+                "价格：" + result.getPrice(),
+                "综合评价：" + result.getOverallRating(),
+                "服务评价：" + result.getServiceRating()};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog dialog = builder.setTitle(result.getName()).setIcon(R.drawable.icon_gym).setPositiveButton("关闭", null).setItems(info, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                if ((1 == which) && (!phoneNo.isEmpty())) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneNo));
+                    startActivity(intent);
+                }
+            }
+        }).create();
+
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.alpha = 0.6f;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+    }
+
+    @Override
+    public void onGetPoiResult(PoiResult result) {
+        // TODO Auto-generated method stub
+        //Toast.makeText(getActivity(), "onGetPoiResult : "+result.error, Toast.LENGTH_SHORT).show();
+        if ((null == result) || (result.error != SearchResult.ERRORNO.NO_ERROR))
+            return;
+
 //		for (PoiInfo poi: result.getAllPoi())
 //		{
 //			/* 无需做类型判断  */
 //			//Toast.makeText(getActivity(), "city:"+poi.city+" name:"+poi.name+" address:"+poi.address, Toast.LENGTH_SHORT).show();	    
 //		}
-		myPoiOverlay.setData(result);
-		myPoiOverlay.addToMap();		
-	}
+        myPoiOverlay.setData(result);
+        myPoiOverlay.addToMap();
+    }
 
-	@Override
-	public boolean onMarkerClick(final Marker marker) {
-		// TODO Auto-generated method stub
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        // TODO Auto-generated method stub
         PoiInfo poi = myPoiOverlay.getPoi(marker);
-        
+
         LatLng ll = marker.getPosition();
-		Button popupButton = new Button(this);
-		InfoWindow mInfoWindow = new InfoWindow(popupButton, ll, -47);
-		baiduMap.showInfoWindow(mInfoWindow);
+        Button popupButton = new Button(this);
+        InfoWindow mInfoWindow = new InfoWindow(popupButton, ll, -47);
+        baiduMap.showInfoWindow(mInfoWindow);
 		
 		/* 修改popup形状和内容  */
-        popupButton.setText(poi.name.toString());	
+        popupButton.setText(poi.name.toString());
         popupButton.setTextColor(android.graphics.Color.BLACK);
         popupButton.setBackgroundResource(R.drawable.popup);
-             
+
         popupButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				PoiInfo poi = myPoiOverlay.getPoi(marker);
-				// TODO Auto-generated method stub
-				poiSearch.searchPoiDetail((new PoiDetailSearchOption()).poiUid(poi.uid));
-			}
+
+            @Override
+            public void onClick(View v) {
+                PoiInfo poi = myPoiOverlay.getPoi(marker);
+                // TODO Auto-generated method stub
+                poiSearch.searchPoiDetail((new PoiDetailSearchOption()).poiUid(poi.uid));
+            }
         });
-		return false;
-	}
+        return false;
+    }
 }

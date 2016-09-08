@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class FragmentAdapter extends FragmentPagerAdapter{
 
 	private Fragment[] frag;
+
 	public FragmentAdapter(FragmentManager fm, Fragment[] frag) {
 		super(fm);
 		// TODO Auto-generated constructor stub

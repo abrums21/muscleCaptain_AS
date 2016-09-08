@@ -7,7 +7,7 @@ import android.os.IBinder;
 
 public class FloatBallService extends Service{
 
-	private SharedPreferences shareaPare;
+	private SharedPreferences sharedPre;
 	private FloatViewManager manager;
 	
 	@Override
@@ -16,29 +16,29 @@ public class FloatBallService extends Service{
 		return null;
 	}
 
-	
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		shareaPare = getSharedPreferences("phone", MODE_PRIVATE);
+		sharedPre = getSharedPreferences("phone", MODE_PRIVATE);
 		manager = FloatViewManager.getInstance(this);
-		if (1 == shareaPare.getInt("floatBallShow", 1))
-		{
-		    manager.showFloatBall();
-		}
-				
+		showFloatBall();
 	}
 	
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		//onCreate();
-		if (1 == shareaPare.getInt("floatBallShow", 1))
-		{
-		    manager.showFloatBall();
-		}
+		showFloatBall();
 		super.onDestroy();
+	}
+
+	private void showFloatBall()
+	{
+		if (1 == sharedPre.getInt("floatBallShow", 1))
+		{
+			manager.showFloatBall();
+		}
 	}
 
 //    @Override

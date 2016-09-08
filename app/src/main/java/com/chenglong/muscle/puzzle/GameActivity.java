@@ -52,7 +52,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
 
     private MyGame myGame;
     private ImageView iv;
-    // private MyGridView myGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +59,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_game);
         setTitle("美队健身：拼图游戏");
-
-        // int top =
-        // getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
 
         Intent intent = getIntent();
         Bundle mBundle = intent.getExtras();
@@ -72,11 +68,8 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
 
         if (!mImagePath.isEmpty()) {
             myBitmap = MyBitmapUtil.decodeBitmapByPath(this, mImagePath);
-            // myBitmap = BitmapFactory.decodeFile(mImagePath,options);
         } else if (mSellectedID != -1) {
             myBitmap = MyBitmapUtil.decodeBitmapByRes(this, mSellectedID);
-            // myBitmap = BitmapFactory.decodeResource(getResources(),
-            // mSellectedID, options);
         } else {
             Toast.makeText(this, "找不到选择的照片", Toast.LENGTH_SHORT).show();
             return;
@@ -109,7 +102,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
         RelativeLayout ll = (RelativeLayout) findViewById(R.id.game_layout);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT);
-        // ImageView iv = new ImageView(this);
         params.addRule(RelativeLayout.CENTER_IN_PARENT);
         iv = new ImageView(this);
         iv.setImageBitmap(myGame.getShowBitmap());
@@ -192,18 +184,13 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
     private void initTimerProc() {
         // TODO Auto-generated method stub
         mTimer = new Timer(true);
-        TimerTask task = new TimerTask() {
-
+        mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                Message message = Message.obtain();
-                message.what = TIMEOUT;
-                mHandler.sendMessage(message);
+                mHandler.sendEmptyMessage(TIMEOUT);
             }
-        };
-
-        mTimer.schedule(task, START_MILLIS, INTERVAL_MILLIS);
+        }, START_MILLIS, INTERVAL_MILLIS);
     }
 
     private void freshStep() {
@@ -247,7 +234,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
                         mTimer.cancel();
                         Toast.makeText(GameActivity.this, "恭喜你完成拼图", Toast.LENGTH_LONG).show();
                     }
-
                 }
             }
         });
@@ -298,8 +284,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.alpha = 0.7f;
         dialog.getWindow().setAttributes(lp);
-
         dialog.show();
     }
-
 }

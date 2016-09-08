@@ -19,7 +19,7 @@ import java.io.IOException;
 public class ApkHandle {
 
     private final String APK_SYS_PATH = "/data/app/";
-    private final String APK_SYS_PREFIX = "com.chenglong.muscle-";
+    //    private final String APK_SYS_PREFIX = "com.chenglong.muscle-";
     private String APK_SYS_NAME;
     //private final String MERGE_PATH;
     private Context context;
@@ -32,19 +32,16 @@ public class ApkHandle {
 
     public boolean apkIsExist(String md5) {
         APK_SYS_NAME = getApkPath();
-//        if (!APK_SYS_NAME.isEmpty()) {
-//            String md5Sum = MyCryptUtil.md5sum(APK_SYS_NAME);
-//            if (md5Sum.equals(md5)) {
-//                return true;
-//            }
-//            else
-//            {
-//                return false;
-//            }
-//        } else {
-//            return false;
-//        }
-            return true;
+        if (!APK_SYS_NAME.isEmpty()) {
+            String md5Sum = MyCryptUtil.md5sum(APK_SYS_NAME);
+            if (md5Sum.equals(md5)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     private void copyApk(String apkPath) throws IOException {
@@ -76,23 +73,19 @@ public class ApkHandle {
 
         try {
             copyApk(oldApkName);
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             return false;
         }
         String show = MyPatchUtil.bspatch(oldApkName, newApkName, patchName);
-        Toast.makeText(context, show,Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, show, Toast.LENGTH_LONG).show();
         return true;
     }
 
-    private String getApkPath()
-    {
+    private String getApkPath() {
         File dir = new File(APK_SYS_PATH);
         String filename = "";
-        if (!dir.exists())
-        {
-            Toast.makeText(context, "file empty",Toast.LENGTH_LONG).show();
+        if (!dir.exists()) {
+            Toast.makeText(context, "file empty", Toast.LENGTH_LONG).show();
             return filename;
         }
 
@@ -112,9 +105,7 @@ public class ApkHandle {
 
         try {
             filename = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0).sourceDir;
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             ;
         }
 

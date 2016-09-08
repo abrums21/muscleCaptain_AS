@@ -54,7 +54,7 @@
         <activity android:name=".tool.MapActivity" />
         <activity android:name=".tool.InfoActivity" />
         <activity android:name=".tool.DietActivity" />
-        <activity android:name=".tool.LessionActivity" />
+        <activity android:name=".tool.LessonActivity" />
         <activity android:name=".tool.CalculationActivity" />
         <activity android:name=".tool.CalcItemsActivity" />
         <activity android:name=".tool.AlbumActivity" />

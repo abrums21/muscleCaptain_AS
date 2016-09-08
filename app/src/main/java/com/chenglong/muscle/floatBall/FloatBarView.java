@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 public class FloatBarView extends LinearLayout implements OnClickListener{
 
-	private TranslateAnimation animatinIn;
-	private TranslateAnimation animatinOut;
+	private TranslateAnimation animationIn;
+	private TranslateAnimation animationOut;
 	private int counter = 0;
 	private TextView text;
 	private View root;
@@ -29,24 +29,22 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 		this.context = context;
 		root = View.inflate(getContext(), R.layout.floatball_bar, null);
 		ll = (LinearLayout) root.findViewById(R.id.floatball_bar_ll);
-		animatinIn = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0);
-		animatinIn.setDuration(500);
-		animatinIn.setFillAfter(true);
-		animatinOut = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f);
-		animatinOut.setDuration(500);
-		animatinOut.setFillAfter(true);
-		animatinOut.setAnimationListener(new AnimationListener() {
+		animationIn = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0);
+		animationIn.setDuration(500);
+		animationIn.setFillAfter(true);
+		animationOut = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f);
+		animationOut.setDuration(500);
+		animationOut.setFillAfter(true);
+		animationOut.setAnimationListener(new AnimationListener() {
 			
 			@Override
 			public void onAnimationStart(Animation animation) {
 				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
 			public void onAnimationRepeat(Animation animation) {
 				// TODO Auto-generated method stub
-				
 			}
 			
 			@Override
@@ -78,14 +76,14 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 		});
 	}
 	
-	public void startAniation()
+	public void startAnimation()
 	{
 //		an = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0);
 //		an.setDuration(500);
 //		an.setRepeatCount(2);
 		//an.setFillAfter(true);
 		//an.setFillBefore(true);
-		ll.startAnimation(animatinIn);
+		ll.startAnimation(animationIn);
 		//an.start();
 	}
 
@@ -116,11 +114,9 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 	
 	private void hideView()
 	{
-		ll.startAnimation(animatinOut);
+		ll.startAnimation(animationOut);
 //		FloatViewManager manager = FloatViewManager.getInstance(context);
 //		manager.hideFloatBar();
 //		manager.showFloatBall();
-		
 	}
-
 }

@@ -16,12 +16,15 @@ public class PatchCfg {
         this.md5 = md5;
     }
 
-    public String getName()  {  return name;}
+    public String getName() {
+        return name;
+    }
 
-    public String getUrl()  {  return url;}
+    public String getUrl() {
+        return url;
+    }
 
-    public String getMd5()
-    {
+    public String getMd5() {
         return md5;
     }
 }

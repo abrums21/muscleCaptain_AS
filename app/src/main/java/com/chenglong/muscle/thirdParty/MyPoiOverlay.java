@@ -16,27 +16,27 @@ import android.os.Bundle;
 
 public class MyPoiOverlay extends OverlayManager {
 
-	private static final int MY_MAX_POI_SIZE = 10;
+    private static final int MY_MAX_POI_SIZE = 10;
 
-	private PoiResult mPoiResult = null;
+    private PoiResult mPoiResult = null;
 
-	public MyPoiOverlay(BaiduMap baiduMap) {
-		super(baiduMap);
-	}
+    public MyPoiOverlay(BaiduMap baiduMap) {
+        super(baiduMap);
+    }
 
-	public void setData(PoiResult mPoiResult) {
-		this.mPoiResult = mPoiResult;
-	}
-	
-	public PoiInfo getPoi(Marker marker) {
-		int index = marker.getExtraInfo().getInt("index");
-		return mPoiResult.getAllPoi().get(index);
-	}
-	
-	
-	@Override
-	public boolean onMarkerClick(final Marker marker) {
-		// TODO Auto-generated method stub
+    public void setData(PoiResult mPoiResult) {
+        this.mPoiResult = mPoiResult;
+    }
+
+    public PoiInfo getPoi(Marker marker) {
+        int index = marker.getExtraInfo().getInt("index");
+        return mPoiResult.getAllPoi().get(index);
+    }
+
+
+    @Override
+    public boolean onMarkerClick(final Marker marker) {
+        // TODO Auto-generated method stub
 //		Toast.makeText(BMapManager.getContext(), "onMarkerClick", Toast.LENGTH_SHORT).show();
 //		
 //		if (!mOverlayList.contains(marker)) {
@@ -71,36 +71,36 @@ public class MyPoiOverlay extends OverlayManager {
 //			});
 //			
 //		}
-		return false;
-	}
+        return false;
+    }
 
 
-	@Override
-	public boolean onPolylineClick(Polyline arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean onPolylineClick(Polyline arg0) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	public List<OverlayOptions> getOverlayOptions() {
-		// TODO Auto-generated method stub
+    public List<OverlayOptions> getOverlayOptions() {
+        // TODO Auto-generated method stub
 
-		if (mPoiResult == null || mPoiResult.getAllPoi() == null) {
-			return null;
-		}
-		List<OverlayOptions> markerList = new ArrayList<OverlayOptions>();
-		int markerSize = 0;
-		for (int i = 0; i < mPoiResult.getAllPoi().size() && markerSize < MY_MAX_POI_SIZE; i++) {
-			if (mPoiResult.getAllPoi().get(i).location == null) {
-				continue;
-			}
-			markerSize++;
-			Bundle bundle = new Bundle();
-			bundle.putInt("index", i);
-			markerList.add(new MarkerOptions()
-					.icon(BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark" + markerSize + ".png")).extraInfo(bundle)
-					.position(mPoiResult.getAllPoi().get(i).location));
+        if (mPoiResult == null || mPoiResult.getAllPoi() == null) {
+            return null;
+        }
+        List<OverlayOptions> markerList = new ArrayList<OverlayOptions>();
+        int markerSize = 0;
+        for (int i = 0; i < mPoiResult.getAllPoi().size() && markerSize < MY_MAX_POI_SIZE; i++) {
+            if (mPoiResult.getAllPoi().get(i).location == null) {
+                continue;
+            }
+            markerSize++;
+            Bundle bundle = new Bundle();
+            bundle.putInt("index", i);
+            markerList.add(new MarkerOptions()
+                    .icon(BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark" + markerSize + ".png")).extraInfo(bundle)
+                    .position(mPoiResult.getAllPoi().get(i).location));
 
-		}
-		return markerList;
-	}
+        }
+        return markerList;
+    }
 }

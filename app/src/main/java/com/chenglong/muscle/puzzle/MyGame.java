@@ -33,7 +33,6 @@ public class MyGame {
 
         options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-
         createPuzzleBitmap();
     }
 
@@ -112,7 +111,6 @@ public class MyGame {
     }
 
     private void getWidthHeight(Context context, float[] data) {
-
         DisplayMetrics metric = MyScreenUtil.getScreenMetrics(context);
         float width = metric.widthPixels;
         float height = metric.heightPixels - 190 * metric.density;
@@ -125,14 +123,13 @@ public class MyGame {
         float[] data = {0f, 0f};
 
         getWidthHeight(context, data);
-
         Matrix matrix = new Matrix();
         matrix.postScale(data[0] / oldBitmap.getWidth(), data[1] / oldBitmap.getHeight());
 
         newBitmap = Bitmap.createBitmap(oldBitmap, 0, 0, oldBitmap.getWidth(), oldBitmap.getHeight(), matrix, true);
-
         oldBitmap.recycle();
         oldBitmap = null;
+
         return;
     }
 
