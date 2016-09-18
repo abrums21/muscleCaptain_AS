@@ -4,17 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <include layout="@layout/toolbar_title"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
+
     <LinearLayout
         android:id="@+id/game_ll_text"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_below="@id/toolbar">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:text="步数" />
 
@@ -32,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:text="时间" />
 

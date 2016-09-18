@@ -22,7 +22,6 @@ public class SplashActivity extends Activity {
 
     private final static int DELAY_VALUE = 4000;   /* 3s延迟  */
     private ImageView icon;
-    private ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class SplashActivity extends Activity {
             public void onAnimationEnd(Animation animation) {
                 // TODO Auto-generated method stub
                 icon.setVisibility(View.GONE);
-                img = (ImageView) findViewById(R.id.init_img);
+                ImageView img = (ImageView) findViewById(R.id.init_img);
                 img.setImageBitmap(MyBitmapUtil.decodeBitmapByRes(SplashActivity.this, R.drawable.init));
                 img.startAnimation(new MyAnimation());
             }

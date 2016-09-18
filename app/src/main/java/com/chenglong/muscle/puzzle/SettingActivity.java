@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingActivity extends Activity {
@@ -48,7 +49,6 @@ public class SettingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_setting);
-        setTitle("美队健身：拼图游戏设置");
 
         Toast.makeText(this, "请选择模式和图片开始游戏", Toast.LENGTH_SHORT).show();
 

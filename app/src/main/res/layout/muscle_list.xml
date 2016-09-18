@@ -3,9 +3,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <include layout="@layout/toolbar_title" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="60dp" 
+        android:layout_height="80dp"
         android:background="@drawable/icon_bgd">
 
         <TextView

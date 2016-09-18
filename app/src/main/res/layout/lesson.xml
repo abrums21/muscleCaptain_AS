@@ -1,4 +1,11 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/toolbar_title" />
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#99ccff" >
@@ -9,6 +16,8 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:orientation="vertical" >
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -62,3 +71,5 @@
     </LinearLayout>
 
 </ScrollView>
+
+</LinearLayout>

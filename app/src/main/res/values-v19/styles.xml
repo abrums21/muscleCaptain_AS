@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="AppTheme" parent="@style/AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!--   <item name="android:actionBarStyle">@style/my_actionbar_style</item> -->
+        <!--  <item name="android:windowTranslucentStatus">true</item>
+          <item name="android:fitsSystemWindows">true</item> -->
+
+        <!--
+        <item name="android:colorPrimary">@color/toolbar</item>
+        <item name="android:colorPrimaryDark">@color/toolbar</item>
+        -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+    </style>
+
+    <style name="SplashTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>

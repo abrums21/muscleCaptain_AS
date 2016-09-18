@@ -16,6 +16,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class LessonActivity extends Activity {
 
@@ -31,7 +32,8 @@ public class LessonActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lesson);
-		setTitle("美队健身：训练课程");
+		TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+		rightView.setText("训练课程");
 
 		Calendar cal = Calendar.getInstance();
 		int today = cal.get(Calendar.DAY_OF_WEEK);

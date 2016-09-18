@@ -29,8 +29,7 @@ public class FloatBallView extends View {
         super(context);
         // TODO Auto-generated constructor stub
         this.context = context;
-        float density = MyScreenUtil.getScreenDensity(context);
-        radius = (int) (density * RADIUS_PX);
+        radius = (int) (MyScreenUtil.dp2px(context, RADIUS_PX));
 
         ballPaint = new Paint();
         ballPaint.setColor(Color.GRAY);

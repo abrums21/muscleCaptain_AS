@@ -48,7 +48,7 @@ public class FloatViewManager implements OnTouchListener {
                 bar.startAnimation();
             }
         });
-        minMove = MyScreenUtil.getScreenDensity(context) * MIN_MOVE;
+        minMove = MyScreenUtil.dp2px(context, MIN_MOVE);
         bar = new FloatBarView(context);
     }
 

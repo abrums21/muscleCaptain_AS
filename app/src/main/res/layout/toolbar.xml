@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorPrimary">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?attr/colorPrimary"
+        toolbar:logo="@drawable/icon_small"
+        toolbar:subtitle="美队健身"
+        toolbar:title="美队健身">
+    </android.support.v7.widget.Toolbar>
+</LinearLayout>

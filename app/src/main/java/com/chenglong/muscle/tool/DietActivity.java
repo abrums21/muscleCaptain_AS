@@ -8,6 +8,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class DietActivity extends Activity {
 
@@ -17,7 +18,8 @@ public class DietActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.diet);
-        setTitle("美队健身：餐饮食谱");
+        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+        rightView.setText("餐饮食谱");
 
         ListView lv = (ListView) findViewById(R.id.diet_list);
         lv.setAdapter(new DietAdapter(this));

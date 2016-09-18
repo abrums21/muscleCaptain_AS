@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class CalculationActivity extends Activity {
 
@@ -16,7 +17,8 @@ public class CalculationActivity extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculation);
-        setTitle("美队健身：健康计算");
+        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+        rightView.setText("健康计算");
 
         ListView lv = (ListView) findViewById(R.id.calculation_list);
         String[] items = getResources().getStringArray(R.array.calculation_items);

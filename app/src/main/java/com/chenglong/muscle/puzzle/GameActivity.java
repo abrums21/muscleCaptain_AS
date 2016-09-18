@@ -58,7 +58,6 @@ public class GameActivity extends Activity implements android.view.View.OnClickL
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle_game);
-        setTitle("美队健身：拼图游戏");
 
         Intent intent = getIntent();
         Bundle mBundle = intent.getExtras();

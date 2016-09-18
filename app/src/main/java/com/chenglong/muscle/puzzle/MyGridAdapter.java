@@ -27,11 +27,11 @@ public class MyGridAdapter extends BaseAdapter {
         image = img;
         this.context = context;
 
-        int density = (int) MyScreenUtil.getScreenDensity(context);
+        //int density = (int) MyScreenUtil.getScreenDensity(context);
         DisplayMetrics metric = MyScreenUtil.getScreenMetrics(context);
         width = metric.widthPixels / colums;
-        //height = (metric.heightPixels - 190 * density) / colums;
-        height = (int) (0.7 * metric.heightPixels) / colums;
+        height = (metric.heightPixels - MyScreenUtil.dp2px(context, 170)) / colums;
+        //height = (int) (0.7 * metric.heightPixels) / colums;
     }
 
     @Override

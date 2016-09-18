@@ -10,7 +10,6 @@ import com.chenglong.muscle.fragment.ToolFrag2;
 import com.chenglong.muscle.update.UpdateManager;
 import com.chenglong.muscle.util.MyCommonUtil;
 import com.chenglong.muscle.util.MyPackageUtil;
-import com.chenglong.muscle.util.MyPatchUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.AlertDialog;
@@ -21,9 +20,10 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,9 +32,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements OnClickListener, OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener, OnPageChangeListener {
 
     private final int ITEM1 = Menu.FIRST;
     //private final int ITEM2 = Menu.FIRST + 1;
@@ -43,17 +42,18 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
     private int curIndex;
     private final Fragment[] frags = {new MuscleFrag1(), new ToolFrag2()};
     private final int[] imageId = {R.id.image1, R.id.image2};
-    private final String[] titleInfo = {"美队健身：训练", "美队健身：工具"};
+    private final String[] titleInfo = {"训练", "工具"};
     private final String[] floatBallInfo = {"关闭悬浮球", "开启悬浮球"};
     private int floatBallShow = 1;
     private SharedPreferences shareaPare;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
-
+        mToolbar = (Toolbar) findViewById(R.id.app_toolbar);
         startService();
         initSetting();
         tabSetting();
@@ -114,7 +114,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
 
 
     private void setCurTitle(int position) {
-        setTitle(titleInfo[position]);
+        mToolbar.setSubtitle(titleInfo[position]);
+        setSupportActionBar(mToolbar);
     }
 
     @Override

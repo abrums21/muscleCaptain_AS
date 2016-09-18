@@ -1,12 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title"/>
 
     <LinearLayout
         android:id="@+id/setting_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:background="#6699FF"
         android:orientation="horizontal" >
 
@@ -32,13 +34,11 @@
         android:id="@+id/setting_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:layout_below="@id/setting_ll"
         android:horizontalSpacing="1dp"
         android:numColumns="3"
         android:padding="1dp"
         android:paddingTop="8dp"
         android:verticalSpacing="1dp" />
 
-</RelativeLayout>
+</LinearLayout>
