@@ -79,8 +79,8 @@ public class SplashActivity extends Activity {
                     //MyTipDB.openDatabase(SplashActivity.this);
                 } else {
 					/* 非首次启动 */
-                    initIntent = new Intent(SplashActivity.this, MainActivity.class);
-                    //initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
+                    //initIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
                 }
 
                 SplashActivity.this.startActivity(initIntent);

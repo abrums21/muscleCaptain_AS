@@ -10,8 +10,22 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
 -->
-        <item name="colorPrimary">@color/toolbar</item>
-        <item name="colorPrimaryDark">@color/toolbar</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <!--<item name="android:windowBackground">@color/colorPrimary</item>-->
+    </style>
+
+    <style name="OverflowMenuStyle" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+        <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
+        <item name="overlapAnchor">false</item>
+        <!-- 弹出层背景颜色 -->
+        <item name="android:popupBackground">@color/colorPrimary</item>
+        <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
+        <item name="android:dropDownVerticalOffset">5dp</item>
+        <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
+        <item name="android:dropDownHorizontalOffset">0dp</item>
     </style>
 
     <!-- Application theme. -->
@@ -44,9 +58,17 @@
         <item name="android:taskToBackExitAnimation">@null</item>
     </style>
 
-    <style name="ToolBarStype">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="android:layout_height">60dp</item>
-    </style>
+
+    <!--<style name="title_view">-->
+        <!--<item name="android:textSize">18sp</item>-->
+        <!--<item name="android:textColor">@android:color/white</item>-->
+        <!--<item name="android:textColorHint">@android:color/white</item>-->
+        <!--<item name="android:background">@drawable/selector_search_view</item>-->
+        <!--<item name="android:paddingTop">6dp</item>-->
+        <!--<item name="android:paddingBottom">6dp</item>-->
+        <!--<item name="android:paddingLeft">4dp</item>-->
+        <!--<item name="android:paddingRight">4dp</item>-->
+        <!--<item name="android:singleLine">true</item>-->
+    <!--</style>-->
 
 </resources>

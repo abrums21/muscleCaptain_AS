@@ -3,7 +3,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <include layout="@layout/toolbar_title" />
+    <com.chenglong.muscle.toolbar.MyToolBar
+        xmlns:mytoolbar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimary"
+        mytoolbar:leftTextTitle="健康计算"
+        mytoolbar:rightTextTitle="基础代谢率计算" />
+    <!--<include layout="@layout/toolbar_title" />-->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -57,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:text="21"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" 
                 android:maxLength="3"/>
         </TableRow>
@@ -79,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:text="180"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" 
                 android:maxLength="3"/>
         </TableRow>
@@ -101,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:text="75"
+                android:textColor="@android:color/black"
                 android:textSize="20sp" 
                 android:maxLength="3"/>
         </TableRow>

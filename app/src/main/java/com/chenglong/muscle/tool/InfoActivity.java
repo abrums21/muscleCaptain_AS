@@ -22,8 +22,8 @@ public class InfoActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.info);
-        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
-        rightView.setText("健身贴士");
+//        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+//        rightView.setText("健身贴士");
 
        // TextView tvIntro = (TextView) findViewById(R.id.info_tv);
         tvIntro = (TextSwitcher) findViewById(R.id.info_tv);
@@ -47,7 +47,7 @@ public class InfoActivity extends Activity {
 //        });
     }
 
-    public void click(View v)
+    public void onTextClick(View v)
     {
         if (null != tvIntro)
         tvIntro.setText(getIntro());

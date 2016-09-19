@@ -55,10 +55,10 @@ public class CalcItemsActivity extends Activity {
     private void item_3_calculation() {
         // TODO Auto-generated method stub
         setContentView(R.layout.calc_item_3);
-        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
-        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
-        leftView.setText("健康计算");
-        rightView.setText("基础代谢率计算");
+//        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
+//        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+//        leftView.setText("健康计算");
+//        rightView.setText("基础代谢率计算");
 
         Spinner work = (Spinner) findViewById(R.id.calc_item3_level);
         work.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
@@ -123,10 +123,10 @@ public class CalcItemsActivity extends Activity {
     private void item_2_calculation() {
         // TODO Auto-generated method stub
         setContentView(R.layout.calc_item_2);
-        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
-        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
-        leftView.setText("健康计算");
-        rightView.setText("最大心率计算");
+//        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
+//        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+//        leftView.setText("健康计算");
+//        rightView.setText("最大心率计算");
 
         Button button = (Button) findViewById(R.id.calc_item2_button);
         button.setOnClickListener(new Button.OnClickListener() {
@@ -162,10 +162,10 @@ public class CalcItemsActivity extends Activity {
     private void item_1_calculation() {
         // TODO Auto-generated method stub
         setContentView(R.layout.calc_item_1);
-        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
-        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
-        leftView.setText("健康计算");
-        rightView.setText("标准三围计算");
+//        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
+//        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+//        leftView.setText("健康计算");
+//        rightView.setText("标准三围计算");
 
         Button button = (Button) findViewById(R.id.calc_item1_button);
         button.setOnClickListener(new Button.OnClickListener() {
@@ -213,10 +213,10 @@ public class CalcItemsActivity extends Activity {
     private void item_0_calculation() {
         // TODO Auto-generated method stub
         setContentView(R.layout.calc_item_0);
-        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
-        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
-        leftView.setText("健康计算");
-        rightView.setText("BMI计算");
+//        TextView leftView = (TextView) findViewById(R.id.toolbar_title_left);
+//        TextView rightView = (TextView) findViewById(R.id.toolbar_title_right);
+//        leftView.setText("健康计算");
+//        rightView.setText("BMI计算");
 
         Button button = (Button) findViewById(R.id.calc_item0_button);
         button.setOnClickListener(new Button.OnClickListener() {

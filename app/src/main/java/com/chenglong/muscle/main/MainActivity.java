@@ -53,11 +53,24 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
-        mToolbar = (Toolbar) findViewById(R.id.app_toolbar);
+
         startService();
+        toolbarSetting();
         initSetting();
         tabSetting();
         viewPagerSetting();
+    }
+
+    private void toolbarSetting() {
+        // TODO Auto-generated method stub
+        mToolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doBack();
+            }
+        });
     }
 
     private void initSetting() {
@@ -115,29 +128,36 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     private void setCurTitle(int position) {
         mToolbar.setSubtitle(titleInfo[position]);
-        setSupportActionBar(mToolbar);
+        //setSupportActionBar(mToolbar);
+    }
+
+    private void doBack() {
+        AlertDialog.Builder adBuilder = new AlertDialog.Builder(this);
+        AlertDialog dialog = adBuilder.setMessage("是否确定离开").setPositiveButton("下次再来", new AlertDialog.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                MainActivity.this.finish();
+            }
+        }).setNegativeButton("再看看", null).create();
+
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.alpha = 0.7f;
+        dialog.getWindow().setAttributes(lp);
+
+        dialog.show();
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            AlertDialog.Builder adBuilder = new AlertDialog.Builder(this);
-            AlertDialog dialog = adBuilder.setMessage("是否确定离开").setPositiveButton("下次再来", new AlertDialog.OnClickListener() {
 
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
-                    MainActivity.this.finish();
-                }
-            }).setNegativeButton("再看看", null).create();
-
-            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-            lp.alpha = 0.7f;
-            dialog.getWindow().setAttributes(lp);
-
-            dialog.show();
+            doBack();
             return true;
+        } else if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return mToolbar.showOverflowMenu();
         }
 
         return super.onKeyDown(keyCode, event); /* 目前仅处理回退按键 */

@@ -36,7 +36,7 @@ public class WelcomeActivity extends Activity {
     private long firstTime = 0;
     private final static int TIME_INTERVAL = 1000;
     private final static int TIME_START = 1000;
-    private final static int TIME_COUNT = 15;
+    private final static int TIME_COUNT = 10;
     private final static int SECONDS = 1;
     private int mCount = 0;
     private Handler mHandler;
@@ -104,11 +104,12 @@ public class WelcomeActivity extends Activity {
                 if (position == pics.length - 1) {
                     button.setVisibility(View.VISIBLE);
                     button.setAnimation(AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.welcome_button));
-                    View view = getLayoutInflater().inflate(R.layout.welcome_click, null);
-                    Toast toast = new Toast(WelcomeActivity.this);
-                    toast.setView(view);
-                    toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.show();
+//                    View view = getLayoutInflater().inflate(R.layout.welcome_click, null);
+//                    Toast toast = new Toast(WelcomeActivity.this);
+//                    toast.setView(view);
+//                    toast.setDuration(Toast.LENGTH_SHORT);
+//                    toast.show();
+                    Toast.makeText(WelcomeActivity.this, "点击盾牌进入",Toast.LENGTH_SHORT).show();
                 } else {
                     button.setVisibility(View.GONE);
                     button.clearAnimation();
@@ -207,7 +208,7 @@ public class WelcomeActivity extends Activity {
         }, TIME_START, TIME_INTERVAL);
     }
 
-    void jumpActivity() {
+    private void jumpActivity() {
         Intent nextIntent = new Intent(WelcomeActivity.this, MainActivity.class);
         WelcomeActivity.this.startActivity(nextIntent);
         WelcomeActivity.this.finish();
