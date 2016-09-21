@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.chenglong.muscle.R;
+import com.chenglong.muscle.custom.MyShortCut;
+import com.chenglong.muscle.tool.MapActivity;
 
 import android.app.Activity;
 import android.content.Intent;

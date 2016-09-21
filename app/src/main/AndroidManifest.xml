@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
@@ -44,6 +45,7 @@
   
         <activity
             android:name=".main.SplashActivity"
+            android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +56,11 @@
         <activity android:name=".main.WelcomeActivity"/>
         <activity android:name=".main.MainActivity" />
         <activity android:name=".body.MuscleListActivity" />
-        <activity android:name=".tool.MapActivity" />
+        <activity android:name=".tool.MapActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.muscle.shortcut.map" />
+            </intent-filter>
+        </activity>
         <activity android:name=".tool.InfoActivity" />
         <activity android:name=".tool.DietActivity" />
         <activity android:name=".tool.LessonActivity" />

@@ -1,6 +1,10 @@
 package com.chenglong.muscle.main;
 
 import com.chenglong.muscle.R;
+import com.chenglong.muscle.custom.MyAnimation;
+import com.chenglong.muscle.custom.MyShortCut;
+import com.chenglong.muscle.custom.MyTipDB;
+import com.chenglong.muscle.tool.MapActivity;
 import com.chenglong.muscle.util.MyBitmapUtil;
 import com.chenglong.muscle.util.MyPackageUtil;
 
@@ -22,6 +26,7 @@ public class SplashActivity extends Activity {
 
     private final static int DELAY_VALUE = 4000;   /* 3s延迟  */
     private ImageView icon;
+    private final static String action = "map";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +82,11 @@ public class SplashActivity extends Activity {
                     /* 临时添加  */
                     //MyTipDB.stub_tipsDbStore();
                     //MyTipDB.openDatabase(SplashActivity.this);
+                    MyShortCut.addShortcut(SplashActivity.this, "附近健身房", R.drawable.icon_map, MapActivity.class, action);
                 } else {
 					/* 非首次启动 */
-                    //initIntent = new Intent(SplashActivity.this, MainActivity.class);
-                    initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
+                    initIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    //initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
                 }
 
                 SplashActivity.this.startActivity(initIntent);

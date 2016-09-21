@@ -75,7 +75,7 @@ public class MapActivity extends Activity
         setContentView(R.layout.map);
         setTitle("美队健身：附近健身房");
 
-        Toast.makeText(this, "本功能依赖于网络访问权限，请确认开启", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "本功能依赖于网络访问权限，请确认已开启", Toast.LENGTH_SHORT).show();
 
 		/* 基础地图及定位图层功能 */
         mapSetting();

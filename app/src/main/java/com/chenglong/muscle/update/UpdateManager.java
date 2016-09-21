@@ -91,11 +91,11 @@ public class UpdateManager {
         try {
             PATH = context.getExternalCacheDir().getAbsolutePath() + "/update/";
             //PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/update/";
-            UPDATE_XML_FILE = PATH + "version.xml";
         } catch (Exception e) {
             PATH = "";
         }
 
+        UPDATE_XML_FILE = PATH + "version.xml";
         backUpdate = false;
         checkCancel = false;
         updateCancel = false;

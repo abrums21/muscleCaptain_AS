@@ -1,4 +1,4 @@
-package com.chenglong.muscle.main;
+package com.chenglong.muscle.custom;
 
 import android.graphics.Matrix;
 import android.view.animation.AccelerateDecelerateInterpolator;

@@ -1,8 +1,7 @@
 package com.chenglong.muscle.tool;
 
-import com.chenglong.muscle.main.MyTipDB;
+import com.chenglong.muscle.custom.MyTipDB;
 import com.chenglong.muscle.R;
-import com.chenglong.muscle.util.MyScreenUtil;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -31,7 +30,7 @@ public class InfoActivity extends Activity {
             @Override
             public View makeView() {
                 TextView tv = new TextView(InfoActivity.this);
-                tv.setTextSize(MyScreenUtil.sp2px(InfoActivity.this, 10));
+                tv.setTextSize(21);
                 tv.getPaint().setFakeBoldText(true);
                 return tv;
             }

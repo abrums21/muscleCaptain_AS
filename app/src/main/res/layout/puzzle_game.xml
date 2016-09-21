@@ -4,18 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <include layout="@layout/mytoolbar"
-        android:id="@+id/toolbar"
+    <com.chenglong.muscle.custom.MyToolBar
+        xmlns:mytoolbar="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mytoolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentTop="true"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimary"
+        mytoolbar:rightTextTitle="拼图游戏"/>
 
     <LinearLayout
         android:id="@+id/game_ll_text"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center_horizontal"
-        android:layout_below="@id/toolbar">
+        android:layout_below="@id/mytoolbar">
 
         <TextView
             android:layout_width="0dp"
