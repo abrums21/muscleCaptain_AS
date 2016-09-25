@@ -388,7 +388,7 @@ public class UpdateManager {
         RemoteViews mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_update);
 
         Notification.Builder builder = new Notification.Builder(mContext);
-        builder.setSmallIcon(R.drawable.icon_small);
+        builder.setSmallIcon(R.drawable.icon_micro);
         builder.setContentTitle("美队健身更新中");
         builder.setSubText("新版本下载中");
         builder.setWhen(System.currentTimeMillis());

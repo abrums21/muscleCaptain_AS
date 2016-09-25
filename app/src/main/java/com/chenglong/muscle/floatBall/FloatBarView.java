@@ -4,6 +4,7 @@ package com.chenglong.muscle.floatBall;
 import com.chenglong.muscle.R;
 
 import android.content.Context;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,11 +23,16 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 	private View root;
 	private Context context;
 	private LinearLayout ll;
+	private Vibrator vibrator;
+//	private final static long [] vibratePattern = {100, 500};
+	private final static long setTime = 400;
+    private final static long resetTime = 600;
 	
 	public FloatBarView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 		this.context = context;
+		vibrator = (Vibrator)getContext().getSystemService(Context.VIBRATOR_SERVICE);
 		root = View.inflate(getContext(), R.layout.floatball_bar, null);
 		ll = (LinearLayout) root.findViewById(R.id.floatball_bar_ll);
 		animationIn = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF, 0);
@@ -94,10 +100,13 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 		case R.id.floatball_bar_tv2:
 			counter = 0;
 			setCounter();
+            vibrator.vibrate(resetTime);
 			break;
         case R.id.floatball_bar_tv3:
         	counter++;
         	setCounter();
+            vibrator.vibrate(setTime);
+			//vibrator.vibrate(vibratePattern, -1);
 			break;
         case R.id.floatball_bar_img:
         	hideView();
@@ -119,4 +128,5 @@ public class FloatBarView extends LinearLayout implements OnClickListener{
 //		manager.hideFloatBar();
 //		manager.showFloatBall();
 	}
+
 }

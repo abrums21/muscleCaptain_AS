@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.alpha = 0.7f;
+        dialog.getWindow().setWindowAnimations(R.style.dialogAnimation);
         dialog.getWindow().setAttributes(lp);
 
         dialog.show();
@@ -196,19 +197,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                         .setNegativeButton("关闭", null)
                         .create();
                 WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+
                 lp.alpha = 0.8f;
                 dialog.getWindow().setAttributes(lp);
+                dialog.getWindow().setWindowAnimations(R.style.dialogAnimation);
                 dialog.show();
                 break;
             }
             case R.id.menu_main_2: {
-                View aboutView = LayoutInflater.from(this).inflate(R.layout.about, null);
-                aboutView.getBackground().setAlpha(150);
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 AlertDialog dialog = builder.setIcon(R.drawable.menu_main_1)
                         .setSingleChoiceItems(floatBallInfo, floatBallShow, new AlertDialog.OnClickListener() {
-
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // TODO Auto-generated method stub

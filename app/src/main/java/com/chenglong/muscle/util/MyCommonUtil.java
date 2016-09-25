@@ -15,6 +15,7 @@ public class MyCommonUtil {
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.alpha = 0.8f;
         dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setWindowAnimations(R.style.dialogAnimation);
         dialog.show();
     }
 }

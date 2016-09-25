@@ -15,6 +15,14 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
         <!--<item name="android:windowBackground">@color/colorPrimary</item>-->
+        <item name="android:windowAnimationStyle">@style/fade</item>
+    </style>
+
+    <style name="fade" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_out</item>
     </style>
 
     <style name="OverflowMenuStyle" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
@@ -31,44 +39,31 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="@style/AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-       <!-- <item name="android:windowTranslucentStatus">true</item> -->
-    </style>
-
-    <style name="SplashTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <!-- <item name="android:windowTranslucentStatus">true</item> -->
     </style>
-    
-    <style name="MyTheme" parent="android:style/Theme.NoTitleBar.Fullscreen">
-      <item name="android:windowAnimationStyle">@style/Animation</item>
+
+    <style name="AppTranslateTheme" parent="AppBaseTheme">
+        <item name="android:windowAnimationStyle">@style/fade</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+
     </style>
 
-    <style name="Animation">
-        <item name="android:activityOpenEnterAnimation">@null</item>
-        <item name="android:activityOpenExitAnimation">@null</item>
-        <item name="android:activityCloseEnterAnimation">@null</item>
-        <item name="android:activityCloseExitAnimation">@null</item>
-        <item name="android:taskOpenEnterAnimation">@null</item>
-        <item name="android:taskOpenExitAnimation">@null</item>
-        <item name="android:taskCloseEnterAnimation">@null</item>
-        <item name="android:taskCloseExitAnimation">@null</item>
-        <item name="android:taskToFrontEnterAnimation">@null</item>
-        <item name="android:taskToFrontExitAnimation">@null</item>
-        <item name="android:taskToBackEnterAnimation">@null</item>
-        <item name="android:taskToBackExitAnimation">@null</item>
+    <style name="fadeTranslucent" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/left_in</item>
+        <item name="android:windowExitAnimation">@anim/right_out</item>
     </style>
 
+    <style name="SplashTheme" parent="@style/AppTranslateTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
 
-    <!--<style name="title_view">-->
-        <!--<item name="android:textSize">18sp</item>-->
-        <!--<item name="android:textColor">@android:color/white</item>-->
-        <!--<item name="android:textColorHint">@android:color/white</item>-->
-        <!--<item name="android:background">@drawable/selector_search_view</item>-->
-        <!--<item name="android:paddingTop">6dp</item>-->
-        <!--<item name="android:paddingBottom">6dp</item>-->
-        <!--<item name="android:paddingLeft">4dp</item>-->
-        <!--<item name="android:paddingRight">4dp</item>-->
-        <!--<item name="android:singleLine">true</item>-->
-    <!--</style>-->
+    <style name="dialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/top_in</item>
+        <item name="android:windowExitAnimation">@anim/bottom_out</item>
+    </style>
 
 </resources>

@@ -85,8 +85,8 @@ public class SplashActivity extends Activity {
                     MyShortCut.addShortcut(SplashActivity.this, "附近健身房", R.drawable.icon_map, MapActivity.class, action);
                 } else {
 					/* 非首次启动 */
-                    initIntent = new Intent(SplashActivity.this, MainActivity.class);
-                    //initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
+                    //initIntent = new Intent(SplashActivity.this, MainActivity.class);
+                    initIntent = new Intent(SplashActivity.this, WelcomeActivity.class);  /* just 4 test */
                 }
 
                 SplashActivity.this.startActivity(initIntent);

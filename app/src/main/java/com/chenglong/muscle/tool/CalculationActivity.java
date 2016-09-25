@@ -31,6 +31,7 @@ public class CalculationActivity extends Activity {
                 Intent intent = new Intent(CalculationActivity.this, CalcItemsActivity.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
+//                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
     }

@@ -157,6 +157,7 @@ public class MyToolBar extends Toolbar implements View.OnClickListener {
             case R.id.mytoolbar_leftButton:
             {
                 ((Activity)getContext()).finish();
+//                ((Activity) getContext()).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         }
     }

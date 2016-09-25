@@ -4,8 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.chenglong.muscle.R;
-import com.chenglong.muscle.custom.MyShortCut;
-import com.chenglong.muscle.tool.MapActivity;
+import com.chenglong.muscle.custom.MyCircleProgressBar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,10 +16,6 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,12 +28,12 @@ public class WelcomeActivity extends Activity {
     private ViewPager vp;
     private ImageView[] dots;
     private int curIndex;
-    private Button button;
-    private TextView timeText;
+    private TextView enter;
+    private MyCircleProgressBar myCircleProgressBar;
     private long firstTime = 0;
-    private final static int TIME_INTERVAL = 1000;
-    private final static int TIME_START = 1000;
-    private final static int TIME_COUNT = 10;
+    private final static int TIME_INTERVAL = 500;
+    private final static int TIME_START = 500;
+    private final static int TIME_COUNT = 16;
     private final static int SECONDS = 1;
     private int mCount = 0;
     private Handler mHandler;
@@ -52,13 +47,13 @@ public class WelcomeActivity extends Activity {
         ImageSetting();
         DotsSetting();
         switchSetting();
-        textSetting();
+        progressSetting();
     }
 
     private void switchSetting() {
         // TODO Auto-generated method stub
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new OnClickListener() {
+        enter = (TextView) findViewById(R.id.welocme_enter);
+        enter.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -68,11 +63,12 @@ public class WelcomeActivity extends Activity {
         });
     }
 
-    private void textSetting() {
+    private void progressSetting() {
         // TODO Auto-generated method stub
-        timeText = (TextView) findViewById(R.id.welcome_time);
-        timeText.setText("跳过：" + TIME_COUNT + "s");
-        timeText.setOnClickListener(new OnClickListener() {
+        myCircleProgressBar = (MyCircleProgressBar) findViewById(R.id.welcome_progress);
+        myCircleProgressBar.setText("跳过：" + TIME_COUNT + "s");
+        myCircleProgressBar.setProgress(0);
+        myCircleProgressBar.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -104,17 +100,17 @@ public class WelcomeActivity extends Activity {
                 // TODO Auto-generated method stub
                 setCurDot(position);
                 if (position == pics.length - 1) {
-                    button.setVisibility(View.VISIBLE);
-                    button.setAnimation(AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.welcome_button));
+                    enter.setVisibility(View.VISIBLE);
+                    //enter.setAnimation(AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.welcome_button));
 //                    View view = getLayoutInflater().inflate(R.layout.welcome_click, null);
 //                    Toast toast = new Toast(WelcomeActivity.this);
 //                    toast.setView(view);
 //                    toast.setDuration(Toast.LENGTH_SHORT);
 //                    toast.show();
-                    Toast.makeText(WelcomeActivity.this, "点击盾牌进入",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(WelcomeActivity.this, "点击盾牌进入",Toast.LENGTH_SHORT).show();
                 } else {
-                    button.setVisibility(View.GONE);
-                    button.clearAnimation();
+                    enter.setVisibility(View.GONE);
+                    enter.clearAnimation();
                 }
             }
         });
@@ -187,13 +183,12 @@ public class WelcomeActivity extends Activity {
 
                 switch (msg.what) {
                     case SECONDS: {
+                        mCount++;
+                        myCircleProgressBar.setProgress((float)mCount / TIME_COUNT);
+//                            timeText.setText("跳过：" + show + "s");
                         if (TIME_COUNT == mCount) {
                             timer.cancel();
                             jumpActivity();
-                        } else {
-                            mCount++;
-                            int show = TIME_COUNT - mCount;
-                            timeText.setText("跳过：" + show + "s");
                         }
                         break;
                     }
@@ -214,6 +209,7 @@ public class WelcomeActivity extends Activity {
         Intent nextIntent = new Intent(WelcomeActivity.this, MainActivity.class);
         WelcomeActivity.this.startActivity(nextIntent);
         WelcomeActivity.this.finish();
+//        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     @Override
