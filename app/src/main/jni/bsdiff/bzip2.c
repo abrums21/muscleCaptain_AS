@@ -826,11 +826,11 @@ void mySIGSEGVorSIGBUScatcher ( IntNative n )
       "   (2) A bug in the compiler used to create this executable\n"
       "       (unlikely, if you didn't compile bzip2 yourself.)\n"
       "   (3) A real bug in bzip2 -- I hope this should never be the case.\n"
-      "   The user's manual, Section 4.3, has more info on (1) and (2).\n"
+      "   The user's manual, Section 4.3, has more activity_tool_info on (1) and (2).\n"
       "   \n"
-      "   If you suspect this is a bug in bzip2, or are unsure about (1)\n"
+      "   If you suspect this is a bug in bzip2, or are unsure dlg_about (1)\n"
       "   or (2), feel free to report it to me at: jseward@bzip.org.\n"
-      "   Section 4.3 of the user's manual describes the info a useful\n"
+      "   Section 4.3 of the user's manual describes the activity_tool_info a useful\n"
       "   bug report should have.  If the manual is available on your\n"
       "   system, please try and read it before mailing me.  If you don't\n"
       "   have the manual or can't be bothered to read it, mail me anyway.\n"
@@ -849,11 +849,11 @@ void mySIGSEGVorSIGBUScatcher ( IntNative n )
       "   (3) A bug in the compiler used to create this executable\n"
       "       (unlikely, if you didn't compile bzip2 yourself.)\n"
       "   (4) A real bug in bzip2 -- I hope this should never be the case.\n"
-      "   The user's manual, Section 4.3, has more info on (2) and (3).\n"
+      "   The user's manual, Section 4.3, has more activity_tool_info on (2) and (3).\n"
       "   \n"
-      "   If you suspect this is a bug in bzip2, or are unsure about (2)\n"
+      "   If you suspect this is a bug in bzip2, or are unsure dlg_about (2)\n"
       "   or (3), feel free to report it to me at: jseward@bzip.org.\n"
-      "   Section 4.3 of the user's manual describes the info a useful\n"
+      "   Section 4.3 of the user's manual describes the activity_tool_info a useful\n"
       "   bug report should have.  If the manual is available on your\n"
       "   system, please try and read it before mailing me.  If you don't\n"
       "   have the manual or can't be bothered to read it, mail me anyway.\n"
@@ -895,10 +895,10 @@ void configError ( void )
 
 
 /*---------------------------------------------------*/
-/*--- The main driver machinery                   ---*/
+/*--- The activity_main driver machinery                   ---*/
 /*---------------------------------------------------*/
 
-/* All rather crufty.  The main problem is that input files
+/* All rather crufty.  The activity_main problem is that input files
    are stat()d multiple times before use.  This should be
    cleaned up. 
 */
@@ -953,7 +953,7 @@ Bool fileExists ( Char* name )
    set safely.  We instead use open() to create the file with
    the interim permissions required. (--- --- rw-).
 
-   For non-Unix platforms, if we are not worrying about
+   For non-Unix platforms, if we are not worrying dlg_about
    security issues, simple this simply behaves like fopen.
 */
 static
@@ -1008,7 +1008,7 @@ Int32 countHardLinks ( Char* name )
 
 /*---------------------------------------------*/
 /* Copy modification date, access date, permissions and owner from the
-   source to destination file.  We have to copy this meta-info off
+   source to destination file.  We have to copy this meta-activity_tool_info off
    into fileMetaInfo before starting to compress / decompress it,
    because doing it afterwards means we get the wrong access time.
 
@@ -1217,7 +1217,7 @@ void compress ( Char *name )
    }
 
    if ( srcMode == SM_F2F ) {
-      /* Save the file's meta-info before we open it.  Doing it later
+      /* Save the file's meta-activity_tool_info before we open it.  Doing it later
          means we mess up the access times. */
       saveInputFileMetaInfo ( inName );
    }
@@ -1403,7 +1403,7 @@ void uncompress ( Char *name )
    }
 
    if ( srcMode == SM_F2F ) {
-      /* Save the file's meta-info before we open it.  Doing it later
+      /* Save the file's meta-activity_tool_info before we open it.  Doing it later
          means we mess up the access times. */
       saveInputFileMetaInfo ( inName );
    }
@@ -1678,9 +1678,9 @@ void redundant ( Char* flag )
 
 /*---------------------------------------------*/
 /*--
-  All the garbage from here to main() is purely to
+  All the garbage from here to activity_main() is purely to
   implement a linked list of command-line arguments,
-  into which main() copies argv[1 .. argc-1].
+  into which activity_main() copies argv[1 .. argc-1].
 
   The purpose of this exercise is to facilitate 
   the expansion of wildcard characters * and ? in 

@@ -55,7 +55,7 @@ void BZ2_bz__AssertH__fail ( int errcode )
 
    if (errcode == 1007) {
    fprintf(stderr,
-      "\n*** A special note about internal error number 1007 ***\n"
+      "\n*** A special note dlg_about internal error number 1007 ***\n"
       "\n"
       "Experience suggests that a common cause of i.e. 1007\n"
       "is unreliable memory or other hardware.  The 1007 assertion\n"
@@ -74,7 +74,7 @@ void BZ2_bz__AssertH__fail ( int errcode )
       "  power-on test, and may find failures that the BIOS doesn't.\n"
       "\n"
       "* If the error can be repeatably reproduced, this is a bug in\n"
-      "  bzip2, and I would very much like to hear about it.  Please\n"
+      "  bzip2, and I would very much like to hear dlg_about it.  Please\n"
       "  let me know, and, ideally, save a copy of the file causing the\n"
       "  problem -- without which I will be unable to investigate it.\n"
       "\n"

@@ -355,7 +355,7 @@ Int32 BZ2_decompress ( DState* s )
 
       for (i = 0; i <= 255; i++) s->unzftab[i] = 0;
 
-      /*-- MTF splash --*/
+      /*-- MTF activity_splash --*/
       {
          Int32 ii, jj, kk;
          kk = MTFA_SIZE-1;
@@ -367,7 +367,7 @@ Int32 BZ2_decompress ( DState* s )
             s->mtfbase[ii] = kk + 1;
          }
       }
-      /*-- end MTF splash --*/
+      /*-- end MTF activity_splash --*/
 
       nblock = 0;
       GET_MTF_VAL(BZ_X_MTF_1, BZ_X_MTF_2, nextSym);

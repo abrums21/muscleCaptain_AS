@@ -31,9 +31,9 @@
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
 
     <application
-        android:name=".main.MyApplication"
+        android:name=".engine.MuscleApplication"
         android:allowBackup="false"
-        android:icon="@drawable/icon_small"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme"
@@ -44,7 +44,7 @@
 <!--            android:value="1UkHRrXTZ5425yG6u9BjU32FqPDX1iGO" />   -->  
   
         <activity
-            android:name=".main.SplashActivity"
+            android:name=".activity.other.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -53,24 +53,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.WelcomeActivity"/>
-        <activity android:name=".main.MainActivity" />
-        <activity android:name=".body.MuscleListActivity" />
-        <activity android:name=".tool.MapActivity" >
+        <activity android:name=".activity.other.WelcomeActivity"/>
+        <activity android:name=".activity.main.MainActivity" />
+        <activity android:name=".activity.execrise.MuscleExecriseActivity" />
+        <activity android:name=".activity.toolbox.ToolGymActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.muscle.shortcut.map" />
             </intent-filter>
         </activity>
-        <activity android:name=".tool.InfoActivity" />
-        <activity android:name=".tool.DietActivity" />
-        <activity android:name=".tool.LessonActivity" />
-        <activity android:name=".tool.CalculationActivity" />
-        <activity android:name=".tool.CalcItemsActivity" />
-        <activity android:name=".tool.AlbumActivity" />
-        <activity android:name=".puzzle.SettingActivity" />
-        <activity android:name=".puzzle.GameActivity" />
+        <activity android:name=".activity.toolbox.ToolInfoActivity" />
+        <activity android:name=".activity.toolbox.ToolDietActivity" />
+        <activity android:name=".activity.toolbox.ToolLessonActivity" />
+        <activity android:name=".activity.toolbox.ToolHealthActivity" />
+        <activity android:name=".activity.toolbox.ToolHealthItemsActivity" />
+        <activity android:name=".activity.toolbox.ToolAlbumActivity" />
+        <activity android:name=".activity.toolbox.ToolGameSettingActivity" />
+        <activity android:name=".activity.toolbox.ToolGamePlayActivity" />
 
-        <service android:name=".floatBall.FloatBallService"
+        <service android:name=".service.FloatBallService"
             android:enabled="true"/>
         <service
             android:name="com.baidu.location.f"

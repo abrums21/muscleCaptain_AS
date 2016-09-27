@@ -82,7 +82,7 @@ static void offtout(int64_t x, uint8_t *buf) {
 		buf[7] |= 0x80;
 }
 
-jstring Java_com_chenglong_muscle_util_MyPatchUtil_bsdiff(JNIEnv* env, jobject thiz,
+jstring Java_com_chenglong_muscle_util_PatchUtil_bsdiff(JNIEnv* env, jobject thiz,
 		jstring oldFilePath, jstring newFilePath, jstring patchFilePath) {
 
 	char data[128];
@@ -225,7 +225,7 @@ static int64_t offtin(uint8_t *buf)
 	return y;
 }
 
-jstring Java_com_chenglong_muscle_util_MyPatchUtil_bspatch(JNIEnv* env,
+jstring Java_com_chenglong_muscle_util_PatchUtil_bspatch(JNIEnv* env,
 		jobject thiz, jstring oldFilePath, jstring newFilePath, jstring patchFilePath) {
 
 	char data[128];

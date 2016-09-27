@@ -168,7 +168,7 @@ int main(int argc,char * argv[])
 		((old=malloc(oldsize+1))==NULL) ||
 		(lseek(fd,0,SEEK_SET)!=0) ||
 		(read(fd,old,oldsize)!=oldsize) ||
-		(close(fd)==-1)) err(1,"%s",argv[1]);
+		(floatbar_close(fd)==-1)) err(1,"%s",argv[1]);
 	if((new=malloc(newsize+1))==NULL) err(1,NULL);
 
 	if (NULL == (bz2 = BZ2_bzReadOpen(&bz2err, f, 0, 0, NULL, 0)))
@@ -185,7 +185,7 @@ int main(int argc,char * argv[])
 
 	/* Write the new file */
 	if(((fd=open(argv[2],O_CREAT|O_TRUNC|O_WRONLY,0666))<0) ||
-		(write(fd,new,newsize)!=newsize) || (close(fd)==-1))
+		(write(fd,new,newsize)!=newsize) || (floatbar_close(fd)==-1))
 		err(1,"%s",argv[2]);
 
 	free(new);

@@ -46,16 +46,16 @@
         <item>上斜哑铃夹胸</item>
     </string-array>
     <string-array name="breast_drawable">
-        <item>@drawable/breast_1</item>
-        <item>@drawable/breast_2</item>
-        <item>@drawable/breast_3</item>
-        <item>@drawable/breast_4</item>
+        <item>@drawable/execrise_breast_1</item>
+        <item>@drawable/execrise_breast_2</item>
+        <item>@drawable/execrise_breast_3</item>
+        <item>@drawable/execrise_breast_4</item>
     </string-array>
     <string-array name="breast_drawable_gif">
-        <item>@drawable/breast_1_g</item>
-        <item>@drawable/breast_2_g</item>
-        <item>@drawable/breast_3_g</item>
-        <item>@drawable/breast_4_g</item>
+        <item>@drawable/execrise_breast_1_g</item>
+        <item>@drawable/execrise_breast_2_g</item>
+        <item>@drawable/execrise_breast_3_g</item>
+        <item>@drawable/execrise_breast_4_g</item>
     </string-array>
     
     <string-array name="back_name">
@@ -70,26 +70,26 @@
         <item>站姿哑铃提肩</item>
     </string-array>
     <string-array name="back_drawable">
-        <item>@drawable/back_1</item>
-        <item>@drawable/back_2</item>
-        <item>@drawable/back_3</item>
-        <item>@drawable/back_4</item>
-        <item>@drawable/back_5</item>
-        <item>@drawable/back_6</item>
-        <item>@drawable/back_7</item>
-        <item>@drawable/back_8</item>
-        <item>@drawable/back_9</item>
+        <item>@drawable/execrise_back_1</item>
+        <item>@drawable/execrise_back_2</item>
+        <item>@drawable/execrise_back_3</item>
+        <item>@drawable/execrise_back_4</item>
+        <item>@drawable/execrise_back_5</item>
+        <item>@drawable/execrise_back_6</item>
+        <item>@drawable/execrise_back_7</item>
+        <item>@drawable/execrise_back_8</item>
+        <item>@drawable/execrise_back_9</item>
     </string-array>
     <string-array name="back_drawable_gif">
-        <item>@drawable/back_1_g</item>
-        <item>@drawable/back_2_g</item>
-        <item>@drawable/back_3_g</item>
-        <item>@drawable/back_4_g</item>
-        <item>@drawable/back_5_g</item>
-        <item>@drawable/back_6_g</item>
-        <item>@drawable/back_7_g</item>
-        <item>@drawable/back_8_g</item>
-        <item>@drawable/back_9_g</item>
+        <item>@drawable/execrise_back_1_g</item>
+        <item>@drawable/execrise_back_2_g</item>
+        <item>@drawable/execrise_back_3_g</item>
+        <item>@drawable/execrise_back_4_g</item>
+        <item>@drawable/execrise_back_5_g</item>
+        <item>@drawable/execrise_back_6_g</item>
+        <item>@drawable/execrise_back_7_g</item>
+        <item>@drawable/execrise_back_8_g</item>
+        <item>@drawable/execrise_back_9_g</item>
     </string-array>
     
     <string-array name="shoulder_name">
@@ -98,14 +98,14 @@
         <item>哑铃侧平提肩</item>
     </string-array>
     <string-array name="shoulder_drawable">
-        <item>@drawable/shoulder_1</item>
-        <item>@drawable/shoulder_2</item>
-        <item>@drawable/shoulder_3</item>
+        <item>@drawable/execrise_shoulder_1</item>
+        <item>@drawable/execrise_shoulder_2</item>
+        <item>@drawable/execrise_shoulder_3</item>
     </string-array>
     <string-array name="shoulder_drawable_gif">
-        <item>@drawable/shoulder_1_g</item>
-        <item>@drawable/shoulder_2_g</item>
-        <item>@drawable/shoulder_3_g</item>
+        <item>@drawable/execrise_shoulder_1_g</item>
+        <item>@drawable/execrise_shoulder_2_g</item>
+        <item>@drawable/execrise_shoulder_3_g</item>
     </string-array>
     
         <string-array name="hand_name">
@@ -118,22 +118,22 @@
         <item>仰卧平板杠铃肱三弯举</item>
     </string-array>
     <string-array name="hand_drawable">
-        <item>@drawable/hand_1</item>
-        <item>@drawable/hand_2</item>
-        <item>@drawable/hand_3</item>
-        <item>@drawable/hand_4</item>
-        <item>@drawable/hand_5</item>
-        <item>@drawable/hand_6</item>
-        <item>@drawable/hand_7</item>
+        <item>@drawable/execrise_hand_1</item>
+        <item>@drawable/execrise_hand_2</item>
+        <item>@drawable/execrise_hand_3</item>
+        <item>@drawable/execrise_hand_4</item>
+        <item>@drawable/execrise_hand_5</item>
+        <item>@drawable/execrise_hand_6</item>
+        <item>@drawable/execrise_hand_7</item>
     </string-array>
     <string-array name="hand_drawable_gif">
-        <item>@drawable/hand_1_g</item>
-        <item>@drawable/hand_2_g</item>
-        <item>@drawable/hand_3_g</item>
-        <item>@drawable/hand_4_g</item>
-        <item>@drawable/hand_5_g</item>
-        <item>@drawable/hand_6_g</item>
-        <item>@drawable/hand_7_g</item>
+        <item>@drawable/execrise_hand_1_g</item>
+        <item>@drawable/execrise_hand_2_g</item>
+        <item>@drawable/execrise_hand_3_g</item>
+        <item>@drawable/execrise_hand_4_g</item>
+        <item>@drawable/execrise_hand_5_g</item>
+        <item>@drawable/execrise_hand_6_g</item>
+        <item>@drawable/execrise_hand_7_g</item>
     </string-array>
     
     <string-array name="abdomen_name">
@@ -143,16 +143,16 @@
         <item>仰卧转体</item>
     </string-array>
     <string-array name="abdomen_drawable">
-        <item>@drawable/abdomen_1</item>
-        <item>@drawable/abdomen_2</item>
-        <item>@drawable/abdomen_3</item>
-        <item>@drawable/abdomen_4</item>
+        <item>@drawable/execrise_abdomen_1</item>
+        <item>@drawable/execrise_abdomen_2</item>
+        <item>@drawable/execrise_abdomen_3</item>
+        <item>@drawable/execrise_abdomen_4</item>
     </string-array>
     <string-array name="abdomen_drawable_gif">
-        <item>@drawable/abdomen_1_g</item>
-        <item>@drawable/abdomen_2_g</item>
-        <item>@drawable/abdomen_3_g</item>
-        <item>@drawable/abdomen_4_g</item>
+        <item>@drawable/execrise_abdomen_1_g</item>
+        <item>@drawable/execrise_abdomen_2_g</item>
+        <item>@drawable/execrise_abdomen_3_g</item>
+        <item>@drawable/execrise_abdomen_4_g</item>
     </string-array>
     
     <string-array name="leg_name">
@@ -162,16 +162,16 @@
         <item>深蹲</item>
     </string-array>
     <string-array name="leg_drawable">
-        <item>@drawable/leg_1</item>
-        <item>@drawable/leg_2</item>
-        <item>@drawable/leg_3</item>
-        <item>@drawable/leg_4</item>
+        <item>@drawable/execrise_leg_1</item>
+        <item>@drawable/execrise_leg_2</item>
+        <item>@drawable/execrise_leg_3</item>
+        <item>@drawable/execrise_leg_4</item>
     </string-array>
     <string-array name="leg_drawable_gif">
-        <item>@drawable/leg_1_g</item>
-        <item>@drawable/leg_2_g</item>
-        <item>@drawable/leg_3_g</item>
-        <item>@drawable/leg_4_g</item>
+        <item>@drawable/execrise_leg_1_g</item>
+        <item>@drawable/execrise_leg_2_g</item>
+        <item>@drawable/execrise_leg_3_g</item>
+        <item>@drawable/execrise_leg_4_g</item>
     </string-array>
     
     <string-array name="body">
@@ -196,13 +196,13 @@
     </string-array>
     
      <array name="tool_image">
-        <item>@drawable/map</item>
-        <item>@drawable/lession</item>
-        <item>@drawable/diet</item>
-        <item>@drawable/info</item>
-        <item>@drawable/puzzle</item>
-        <item>@drawable/calculation</item>
-        <item>@drawable/album</item>
+        <item>@drawable/tool_ic_gym</item>
+        <item>@drawable/tool_ic_lession</item>
+        <item>@drawable/tool_ic_diet</item>
+        <item>@drawable/tool_ic_info</item>
+        <item>@drawable/tool_ic_puzzle</item>
+        <item>@drawable/tool_ic_health</item>
+        <item>@drawable/tool_ic_album</item>
     </array>
     
      <string-array name="tool_iamge_name">
@@ -216,13 +216,13 @@
     </string-array>
     
      <string-array name="puzzle_image">
-        <item>@drawable/init</item>
-        <item>@drawable/bgd_1</item>
-        <item>@drawable/bgd_2</item>
-        <item>@drawable/diet_pic</item>
-        <item>@drawable/info_pic</item>
-        <item>@drawable/bgd_bak</item>
-        <item>@drawable/puzzle_add</item>
+        <item>@drawable/bg_splash</item>
+        <item>@drawable/bg_execrise</item>
+        <item>@drawable/bgd_toolbox</item>
+        <item>@drawable/tool_diet_img</item>
+        <item>@drawable/tool_info_img</item>
+        <item>@drawable/bg_bak</item>
+        <item>@drawable/tool_puzzle_add</item>
     </string-array>
     
      <string-array name="calculation_items">

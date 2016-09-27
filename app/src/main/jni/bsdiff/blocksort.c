@@ -336,7 +336,7 @@ void fallbackSort ( UInt32* fmap,
 
 
 /*---------------------------------------------*/
-/*--- The main, O(N^2 log(N)) sorting       ---*/
+/*--- The activity_main, O(N^2 log(N)) sorting       ---*/
 /*--- algorithm.  Faster for "normal"       ---*/
 /*--- non-repetitive blocks.                ---*/
 /*---------------------------------------------*/
@@ -764,7 +764,7 @@ void mainSort ( UInt32* ptr,
    UChar  c1;
    Int32  numQSorted;
    UInt16 s;
-   if (verb >= 4) VPrintf0 ( "        main sort initialise ...\n" );
+   if (verb >= 4) VPrintf0 ( "        activity_main sort initialise ...\n" );
 
    /*-- set up the 2-byte frequency table --*/
    for (i = 65536; i >= 0; i--) ftab[i] = 0;
@@ -791,7 +791,7 @@ void mainSort ( UInt32* ptr,
       ftab[j]++;
    }
 
-   /*-- (emphasises close relationship of block & quadrant) --*/
+   /*-- (emphasises floatbar_close relationship of block & quadrant) --*/
    for (i = 0; i < BZ_N_OVERSHOOT; i++) {
       block   [nblock+i] = block[i];
       quadrant[nblock+i] = 0;
@@ -860,7 +860,7 @@ void mainSort ( UInt32* ptr,
    }
 
    /*--
-      The main sorting loop.
+      The activity_main sorting loop.
    --*/
 
    numQSorted = 0;
@@ -1058,7 +1058,7 @@ void BZ2_blockSort ( EState* s )
          with v0.1 and v0.9.0.  
          Not that it particularly matters any more, since the
          resulting compressed stream is now the same regardless
-         of whether or not we use the main sort or fallback sort.
+         of whether or not we use the activity_main sort or fallback sort.
       */
       if (wfact < 1  ) wfact = 1;
       if (wfact > 100) wfact = 100;

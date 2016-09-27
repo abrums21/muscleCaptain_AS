@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.chenglong.muscle.ui.CustomToolBar
+        xmlns:mytoolbar="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimary"
+        mytoolbar:rightTextTitle="餐饮食谱" />
+    <!--<include layout="@layout/toolbar_title" />-->
+
+    <TextView
+        android:id="@+id/diet_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle"
+        android:padding="4dp"
+        android:text="@string/diet_desc"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/diet_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/tool_diet_img"/>
+
+</LinearLayout>

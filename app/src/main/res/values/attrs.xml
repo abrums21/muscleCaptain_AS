@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MyToolBar">
+    <declare-styleable name="CustomToolBar">
         <attr name="leftButtonIcon" format="reference"/>
         <!--<attr name="rightButtonIcon" format="reference"/>-->
         <!--<attr name="isShowSearchView" format="boolean"/>-->
@@ -8,7 +8,7 @@
         <attr name="rightTextTitle" format="string"/>
     </declare-styleable>
 
-    <declare-styleable name="MyCircleProgressBar">
+    <declare-styleable name="CircleProgressBar">
         <attr name="text" format="string"/>
         <attr name="strokeWidth" format="dimension"/>
     </declare-styleable>
