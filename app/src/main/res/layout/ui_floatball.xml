@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="6dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rectangle"
             android:gravity="center"
             android:padding="6dp"
@@ -50,12 +50,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="6dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:background="@drawable/customtoolbar_counter"
             android:gravity="center"
             android:text="0"
-            android:textColor="#fff"
-            android:textSize="40sp"
+            android:textColor="@android:color/white"
+            android:textSize="50sp"
             android:textStyle="bold" />
     </LinearLayout>
 

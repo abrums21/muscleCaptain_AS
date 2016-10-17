@@ -5,8 +5,8 @@
     <corners android:radius="5dp" />
 
     <size
-        android:height="30dp"
-        android:width="60dp" />
+        android:height="35dp"
+        android:width="70dp" />
 
     <solid android:color="#FFFFFF" />
 
@@ -14,10 +14,17 @@
         android:width="2dp"
         android:color="#000" />
 
-    <gradient 
-        android:startColor="#FA8072"
+    <!--<gradient-->
+        <!--android:type="radial"-->
+        <!--android:endColor="#FA8072"-->
+        <!--android:centerColor="@android:color/white"-->
+        <!--android:startColor="@color/colorPrimary"-->
+        <!--android:gradientRadius="30dp"/>-->
+
+    <gradient
+        android:angle="45"
+        android:endColor="#FA8072"
         android:centerColor="#fff"
-        android:endColor="@color/colorPrimary"
-        android:angle="45"/>
+        android:startColor="@color/colorPrimary" />
     
 </shape>

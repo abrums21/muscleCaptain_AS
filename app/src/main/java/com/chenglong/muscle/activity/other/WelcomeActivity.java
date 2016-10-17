@@ -35,7 +35,7 @@ public class WelcomeActivity extends Activity {
     private long firstTime = 0;
     private final static int TIME_INTERVAL = 500;
     private final static int TIME_START = 500;
-    private final static int TIME_COUNT = 16;
+    private final static int TIME_COUNT = 12;
     private final static int SECONDS = 1;
     private int mCount = 0;
     private Handler mHandler;

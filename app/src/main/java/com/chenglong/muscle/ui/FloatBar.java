@@ -26,8 +26,8 @@ public class FloatBar extends LinearLayout implements OnClickListener{
 	private LinearLayout ll;
 	private Vibrator vibrator;
 //	private final static long [] vibratePattern = {100, 500};
-	private final static long setTime = 400;
-    private final static long resetTime = 600;
+	private final static long setTime = 200;
+    private final static long resetTime = 400;
 	
 	public FloatBar(Context context) {
 		super(context);

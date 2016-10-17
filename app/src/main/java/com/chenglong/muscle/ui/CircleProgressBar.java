@@ -104,7 +104,7 @@ public class CircleProgressBar extends View {
 
         canvas.drawCircle(mCircleRadius, mCircleRadius, mCircleRadius - mStrokeWidth / 2, mPaintCircle);
         canvas.drawArc(mOval, -90, mProgress, false, mPaintOval);
-        int mTextSize = (int)(0.85 * (mCircleRadius * 2 - mStrokeWidth) / mText.length());
+        int mTextSize = (int)(0.75 * (mCircleRadius * 2 - mStrokeWidth) / mText.length());
         mPaintText.setTextSize(mTextSize);
         int textWidth = (int) mPaintText.measureText(mText, 0, mText.length());
         canvas.drawText(mText, mCircleRadius - textWidth / 2, mCircleRadius + mTextSize / 2, mPaintText);
