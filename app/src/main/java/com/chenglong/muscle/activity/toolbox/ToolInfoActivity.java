@@ -4,6 +4,7 @@ import com.chenglong.muscle.db.TipDBHelper;
 import com.chenglong.muscle.R;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextSwitcher;
@@ -31,6 +32,7 @@ public class ToolInfoActivity extends Activity {
             public View makeView() {
                 TextView tv = new TextView(ToolInfoActivity.this);
                 tv.setTextSize(21);
+                tv.setTypeface(Typeface.SANS_SERIF);
                 tv.getPaint().setFakeBoldText(true);
                 return tv;
             }
