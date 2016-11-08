@@ -4,6 +4,7 @@ import com.ant.liao.GifView;
 import com.ant.liao.GifView.GifImageType;
 import com.chenglong.muscle.R;
 import com.chenglong.muscle.adapter.MuscleExecriseAdapter;
+import com.chenglong.muscle.util.ScreenUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
@@ -21,6 +22,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MuscleExecriseActivity extends Activity implements OnItemClickListener {
 
@@ -132,6 +137,8 @@ public class MuscleExecriseActivity extends Activity implements OnItemClickListe
 
 		GifView gif = (GifView) mView.findViewById(R.id.popup_gif);
 		gif.setGifImage(drawableGIds[position]);
+//		gif.setScaleX(2f);
+//		gif.setScaleY(2f);
 		gif.setGifImageType(GifImageType.WAIT_FINISH);
 		gif.destroyDrawingCache();
 		popup.showAtLocation(view, Gravity.CENTER, 0, 0);

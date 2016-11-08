@@ -34,6 +34,7 @@ model { //这一行是新加的，对应上边的修改,
         buildTypes {
             release {
                 minifyEnabled = false
+                shrinkResources = false
                 proguardFiles.add(file('proguard-rules.pro'))
                 ndk {
                     debuggable = true

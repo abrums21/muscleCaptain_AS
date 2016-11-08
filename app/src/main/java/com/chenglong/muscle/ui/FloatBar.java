@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -68,19 +69,21 @@ public class FloatBar extends LinearLayout implements OnClickListener{
 		addView(root);
 		
 		TextView clearButton = (TextView) root.findViewById(R.id.floatball_bar_tv2);
+		ImageView closeButton = (ImageView) root.findViewById(R.id.floatball_bar_img);
 		text = (TextView) root.findViewById(R.id.floatball_bar_tv3);
 		clearButton.setOnClickListener(this);
 		text.setOnClickListener(this);
+		closeButton.setOnClickListener(this);
 		
-		root.setOnTouchListener(new OnTouchListener() {
-			
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				// TODO Auto-generated method stub
-				hideView();
-				return false;
-			}
-		});
+//		root.setOnTouchListener(new OnTouchListener() {
+//
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				// TODO Auto-generated method stub
+//				hideView();
+//				return false;
+//			}
+//		});
 	}
 	
 	public void startAnimation()
